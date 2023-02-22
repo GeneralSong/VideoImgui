@@ -1,0 +1,81 @@
+#ignore specificity dirs
+/Debug
+/Release
+obj/
+/code/dependencies
+.gitattributes
+GeneratedFiles/
+temp/
+logs/
+/tmp
+/bin64
+/x64
+/lib
+.svn
+.vs
+/tool/Copy_bat/output
+
+viwo_sdk
+
+
+.vscode
+#VisualStudio temp files
+*.cache
+*.obj
+*.sdf
+*.opensdf
+*.suo
+*.ipch
+*.tlog
+*.pdb
+*.error
+*.ilk
+*.res
+*.manifest
+*.log
+*.lastbuildstate
+*.idb
+*.pch
+*_manifest.rc
+*.aps
+*.tss
+*.VC.db
+*.opendb
+*.vcxproj.user
+*.exp
+*.iobj
+*.ipdb
+*.props
+*.user
+
+# qmake file
+qtvars_x64_Release.props
+
+# vim swap file
+*.swp
+
+# CLion file
+/.idea
+/out
+
+# scene
+/scene
+/scene_pm
+# data
+/data/*.ac
+
+# conf
+/conf
+/code/solution_include/Local_Conf.h
+
+#project
+/project/GlobalGisProj/data/models
+/project/GlobalGisProj/data/trans_db
+
+/code/VSVLic
+/packages
+/autocar21b1
+/record
+
+
+
