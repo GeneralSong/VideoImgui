@@ -4,10 +4,10 @@
 #include <iostream>
 #include <string>
 
-
 #include "imgui.h"
 #include "imgui_impl_glfw.h"
 #include "imgui_impl_opengl3.h"
+#include "GUI.h"
 
 GLFWwindow* Windows;
 
@@ -25,8 +25,8 @@ int main(int argc, char* argv[]) {
 
     IMGUI_CHECKVERSION();
     ImGui::CreateContext(nullptr);
-    ImGuiIO& io = ImGui::GetIO();
-    (void)io;
+    ImGuiIO& io = ImGui::GetIO(); (void)io;
+    io.Fonts->AddFontFromFileTTF("arial.ttf",18,nullptr,io.Fonts->GetGlyphRangesChineseFull());
 
     ImGui::StyleColorsDark();
     ImGui_ImplGlfw_InitForOpenGL(Windows, true);
@@ -42,39 +42,7 @@ int main(int argc, char* argv[]) {
         ImGui_ImplGlfw_NewFrame();
         ImGui::NewFrame();
 
-        ImGui::Begin("MyImgWindow", 0, ImGuiWindowFlags_::ImGuiWindowFlags_MenuBar);
-        ImGui::Text(Text.c_str());
-        if (ImGui::Button("MyButton")) {
-            Text = "You Click The Button";
-        }
-        ImGui::InputText("Test Text Box", textbox, 50);
-
-        ImGui::ListBoxHeader("List Box");
-        for (int i = 0; i < 100; i++) {
-            if (ImGui::Selectable(std::to_string(i).c_str())) {
-                Text = std::to_string(i);
-            }
-        }
-        ImGui::ListBoxFooter();
-
-        if (ImGui::BeginCombo("##combo", Text.c_str())) // The second parameter is the label previewed before opening the combo.
-        {
-            for (int i = 0; i< 100;i++)
-            {
-                if (ImGui::Selectable(std::to_string(i).c_str())) {
-                    Text = std::to_string(i);
-                }
-            }
-            ImGui::EndCombo();
-        }
-
-
-        ImGui::ColorEdit4("Test color", (float*)&color,ImGuiColorEditFlags_::ImGuiColorEditFlags_AlphaBar);
-
-        ImGui::End();
-
-
-
+        DrawGUI();
 
         ImGui::ShowDemoWindow();
 
